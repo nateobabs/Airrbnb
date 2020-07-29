@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <div class="container is-fluid">
+    <h1 class="is-size-1 has-text-centered has-text-weight-semibold mb-6">Your Listings</h1>
+    <% if @rooms.any? %>
+      <% @rooms.each do |room| %>
+        <article class="media">
+          <div class="media-left">
+            <%= image_tag room.files.first, class: "roomimg" %>
+          </div>
+          <div class="media-content">
+            <span class="is-size-5"><%= room.home_type %> in <%= room.city %></span>
+            <h3 class="is-size-3 has-text-weight-semibold"><%= link_to room.listing_name, room_path(room), class: "roomlink" %></h3>
+            <hr>
+            <ul class="ul">
+              <li><%= pluralize(room.accomdate, ' guest') %></li>
+              <li><i class="fa fa-circle la"></i><%= pluralize(room.bedroom, ' bedroom') %></li>
+              <li><i class="fa fa-circle la"></i><%= pluralize(room.bathroom, ' bathroom') %></li>
+            </ul>
+            <h2 class="is-size-5 mt-4"><strong><i class="fa fa-rupee mr-1"></i><%= room.price %></strong> / night</h2>
+            <div class="field is-grouped" style="margin-top: 14vh;">
+              <p class="control">
+                <%= link_to "Update your space", edit_room_path(room), class:"button is-small has-text-weight-semibold" %>
+              </p>
+              <p class="control">
+                <%= link_to "Remove your space", room_path(room), method: :delete, data: {confirm: "Are you sure?"}, class:"button is-warning is-small has-text-weight-semibold" %>
+              </p>
+            </div>
+          </div>
+        </article>
+        <hr style="margin: 2vh 0 !important;">
+      <% end %>
+    <% else %>
+      <div class="nothing" style="margin-bottom: 28vh; margin-top: 20vh;">
+        <h1 style="font-size:2.5rem; text-align:center;">You have no space listed, go on</h1>
+        <%= link_to "List your space", new_room_path, class:"button is-link mt-5 listspacebtn", style: "left: 45%"%>
+      </div>
+    <% end %>
+  </div>
+</div>

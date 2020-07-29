@@ -1,0 +1,12 @@
+<div id="error">
+  <% if resource.errors.any? %>
+    <div id="error_explanation" class="notification is-danger is-light">
+      <ul style="margin-left: 3vh">
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<%= javascript_pack_tag 'message' %>

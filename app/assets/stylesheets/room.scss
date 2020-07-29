@@ -1,0 +1,156 @@
+.columns, .column{
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.wrap{
+  padding: 4vh 3vh 4vh 12vh;
+}
+
+.chng{
+  height: 3rem !important;
+  width: 100% !important;
+  font-weight: 600;
+}
+
+.control{
+  font-size: 1.1rem !important;
+}
+
+.image{
+  position: static !important;
+}
+
+.roomimg{
+  height: 10vh !important;
+  width: 100%;
+}
+
+.roomimg{
+  height: 45vh !important;
+  border-radius: 1.5vh;
+}
+
+.media-left{
+  width: 40% !important;
+}
+
+.la{
+  font-size: 0.5vh !important;
+  vertical-align: 5px !important;
+  padding-right: 4px !important;
+}
+
+.roomlink, .roomlink:hover{
+  color: #4a4a4a;
+}
+
+.ul{
+  font-size: 20px !important;
+}
+
+li{
+  margin-right: 0.5vh !important;
+}
+
+.tile{
+  width: 90% !important;
+}
+
+.show-room-img{
+  border-radius: 1.5vh !important;
+}
+
+.stack-images{
+  display: table !important;
+  margin-top: 1.4rem !important;
+  margin-left: 1px !important;
+}
+
+.book-card{
+  padding: 3.5vh 4.5vh !important;
+  border-color: #c9c9c9 !important;
+  border-width: 0.1px !important;
+  border-style: solid !important;
+  border-radius: 1rem !important;
+}
+
+.checkin{
+  border-color: #c7c7c7 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-top-left-radius: 0.5rem !important;
+  margin-top: 0 !important;
+}
+
+.guest-select{
+  border-color: #c7c7c7 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-top: transparent !important;
+  border-bottom-left-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+  margin-top: 0.0rem !important;
+}
+
+.select select, .select, .select:focus{
+  height: 3.2rem !important;
+  font-weight: 500 !important;
+  outline: none !important;
+}
+
+.checkout{
+  border-color: #c7c7c7 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-top-right-radius: 0.5rem !important;
+}
+
+#readlink{
+  font-size: 18px !important;
+  text-decoration: underline !important;
+}
+
+.description{
+  font-size: 20px !important;
+  white-space: pre-line !important;
+}
+
+.select:not(.is-multiple) {
+  width: -webkit-fill-available !important;
+}
+
+.select{
+  display: grid !important;
+}
+
+.stack-columns{
+  display: inline-block !important; 
+  padding: 0 !important;
+  padding-right: 5px !important;
+}
+
+
+.avatar{
+  float: right !important;
+  padding-right: 4rem !important;
+}
+
+.amenities{
+  display: inline-block !important;
+  vertical-align: 16px !important;
+  padding-left: 2rem !important;
+}
+
+#mapp {
+  width: auto !important;
+  height: 500px !important;
+  border-radius: 2vh !important;
+}
+
+.mapcard{
+  height: 500px;
+  width: 1000px !important;
+  left: 10% !important;
+  margin-top: 5vh !important;
+}

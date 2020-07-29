@@ -1,0 +1,118 @@
+<div class="wrapper">
+  <div class="container is-fluid">
+    <%= form_tag(search_path, method: :get, id: "laptop-form", class: "mr-5 ml-5", autocomplete: "off") do %>
+      <div class="formFields">
+        <div class="columns is-gapless is-mobile">
+          <div class="column is-half-fullhd is-one-quarter-desktop">
+            <div class="searchDiv">
+              <label class="searchLabel">Location</label>
+              <%= text_field_tag(:location, params[:search], class: "searchInput", placeholder: "Where are you going?", id:"autocomplete_address" )%>
+            </div>
+          </div>
+          <div class="breakDiv"></div>
+          <div class="column is-one-fifths">
+            <div class="searchDiv">
+              <button class="btn dateBtn" type="button">
+                <label class="searchLabel">Check In</label>
+                <input type="text" class="searchInput" id="checkin" placeholder="Add dates" onfocus="(this.type='date')">
+                <%= hidden_field_tag(:checkin, params[:checkin], id: "setCheckin") %>
+              </button>
+            </div>
+          </div>
+          <div class="breakDiv"></div>
+          <div class="column is-one-fifths">
+            <div class="searchDiv">
+              <button class="btn dateBtn" type="button">
+                <label class="searchLabel">Check Out</label>
+                <input type="text" class="searchInput" id="checkout" placeholder="Add dates" onfocus="(this.type='date')">
+                <%= hidden_field_tag(:checkout, params[:checkout], id: "setCheckout") %>
+              </button>
+            </div>
+          </div>
+          <div class="breakDiv"></div>
+          <div class="column is-one-fifths">
+            <div class="searchDiv">
+              <button class="btn" type="button" id="showGuest">
+                <label class="searchLabel">Guests</label>
+                <label class="checkinn" id="guests">Add Guest</label>
+                <%= hidden_field_tag(:guests, params[:guests], id: "setGuests") %>
+              </button>
+            </div>
+          </div>
+          <div class="breakDiv"></div>
+          <div class="column is-one-fifths">
+            <div class="searchDiv">
+              <%= button_tag(type: "submit", class: "searchBtn") do %>
+                <i class="fa fa-search mr-1"></i>Search
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <span class="tag is-danger is-light" id="checkin-error" style="display:none;">Please select valid date</span>
+    <span class="tag is-danger is-light" id="checkout-error" style="display:none;">Please select valid date</span>
+    <div class="guestCard" style="display: none;">
+      <label class="is-size-5 has-text-weight-semibold" style="vertical-align: -webkit-baseline-middle;">Add Guests</label>
+      <span style="float: right;">
+        <button id="minus"><i class="fa fa-minus-circle mr-1"></i></button>
+        <label id="numberGuest" class="checkinn" style="display:inline-block; font-size: 1rem" id="guest">0</label>
+        <button id="plus"><i class="fa fa-plus-circle ml-1"></i></button> 
+      </span>
+    </div>
+    <form id="mobile-form">
+      <div class="field">
+        <p class="control has-icons-left">
+          <input type="text" class="input is-rounded is-medium" placeholder="Where are you going?">
+          <span class="icon is-left">
+            <img src="https://img.icons8.com/ios/25/000000/search--v1.png"/>
+          </span>
+        </p>
+      </div>
+    </form>
+    <div class="home">
+      <div class="columns is-mobile">
+        <div class="column is-half-fullhd is-full-mobile is-three-quarters-desktop">
+          <h1 class="mainText mb-1">You don't need to go far to find what matters.</h1>
+        </div>
+        <div class="column"></div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag("image1.webp", class: "img") %>
+            </div>
+            <div class="card-content">
+              <h2 class="title is-5">Online Experiences</h2>
+              <p class="subtitle is-6">Unique activities we can do together, led by a world of hosts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag("image2.webp", class: "img") %>
+            </div>
+            <div class="card-content">
+              <h2 class="title is-5">Your next getaway</h2>
+              <p class="subtitle is-6">Switch off or reconnect on a trip that’s just a short drive away.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag("image3.webp", class: "img") %>
+            </div>
+            <div class="card-content">
+              <h2 class="title is-5">Entire homes</h2>
+              <p class="subtitle is-6">Comfortable unique private places, with room for friends or family.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_pack_tag "home" %>

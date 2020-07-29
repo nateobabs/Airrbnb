@@ -1,0 +1,22 @@
+<% flash.each do |key, value| %>
+  <% if key == 'notice' %>
+    <p class="notification is-warning is-light has-text-weight-semibold" id="notice">
+      <%= value %>
+    </p>
+    <script type="text/javascript">
+      setTimeout(() => {
+        document.querySelector('#notice').style.display = 'none';
+      }, 3000);
+    </script>
+  <% end %>
+  <% if key == 'alert' %>
+    <p class="notification is-danger is-light has-text-weight-semibold" id="alert">
+      <%= value %>
+    </p>
+    <script type="text/javascript">
+      setTimeout(() => {
+        document.querySelector('#alert').style.display = 'none';
+      }, 3000);
+    </script>
+  <% end %>
+<% end %>  

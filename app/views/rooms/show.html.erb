@@ -1,0 +1,95 @@
+<div class="wrapper">
+  <div class="container is-fluid space">
+    <h1 class="is-size-2 has-text-weight-semibold"><%= @room.listing_name %></h1>
+    <h4 class="is-size-5 mb-4" style="text-decoration: underline;"><%= @room.address %></h4>
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <div class="tile is-child">
+          <%= image_tag @room.files.first, class: "show-room-img"%>
+        </div>
+        <div class="tile" style="padding: 0 1vh !important"id="stacks">
+          <div class="columns stack-images">
+          <% @room.files.each_with_index do |file, index| %>
+            <% if index != 0 %>
+              <div class="column is-half stack-columns">
+                <%= image_tag file, class: "show-room-img"%>
+              </div>
+              <% end %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile mt-5 desc-column" style="padding-right: 5% !important;">
+      <div class="column is-two-thirds-fullhd is-full-desktop is-full-mobile">
+        <h2 class="is-size-3 has-text-weight-semibold" style="display: inline-block !important;">
+          <%= @room.room_type.capitalize %> hosted by <%= @room.user.email.split('@')[0] %>
+        </h2>
+        <span class="avatar"><img src="https://img.icons8.com/bubbles/80/000000/user-male.png"/></span>
+        <ul class="ul" style="margin-bottom: 4vh !important;">
+          <li><%= pluralize(@room.accomdate, ' guest') %></li>
+          <li><i class="fa fa-circle la"></i><%= pluralize(@room.bedroom, ' bedroom') %></li>
+          <li><i class="fa fa-circle la"></i><%= pluralize(@room.bathroom, ' bathroom') %></li>
+        </ul>
+        <hr>
+        <p class="description mb-3">
+          <%= @room.summary.strip %>
+        </p>
+        <a id="readlink" class="continue_google has-text-weight-semibold">read more</a>
+        <h4 class="mt-4 mb-5">
+          <span class="has-text-weight-semibold continue_google" id="readlink">Contact email</span><span style="font-size: 17px !important;">: <%= current_user.email %></span>
+        </h4>
+        <hr>
+        <h4 class="is-size-4 mt-5 has-text-weight-semibold">Amenities</h4>
+        <div class="columns is-mobile mt-3" style="display: inline !important;">
+          <% if @room.is_tv %>
+            <div class="column is-half-desktop is-half-mobile is-half-fullhd" style="display: inline-block !important;">
+              <div>
+                <img src="https://img.icons8.com/ios/50/000000/tv-show.png"/>
+                <p class="is-size-5 amenities">TV</p>
+              </div>
+            </div>
+          <% end %>
+          <% if @room.is_internet %>
+            <div class="column is-half-desktop is-half-mobile is-half-fullhd" style="display: inline-block !important;">
+              <div>
+                <img src="https://img.icons8.com/android/48/000000/wifi.png"/>
+                <p class="is-size-5 amenities">Wifi</p>
+              </div>
+            </div>
+          <% end %>
+          <% if @room.is_kitchen %>
+            <div class="column is-half-desktop is-half-mobile is-half-fullhd" style="display: inline-block !important; padding-left: 0 !important;">
+              <div>
+                <img src="https://img.icons8.com/emoji/48/000000/fork-and-knife-with-plate-emoji.png"/>
+                <p class="is-size-5 amenities">Kitchen</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%= render 'reservations/form' %>
+    </div>
+    <div class="card mapcard">
+      <div id="mapp">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapCanvas = document.getElementById('mapp');
+    const mapOptions = {
+      center: new google.maps.LatLng(<%= @room.latitude %>, <%= @room.longitude %>),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    const map = new google.maps.Map(mapCanvas, mapOptions);
+
+    const marker = new google.maps.Marker({
+      position: new google.maps.LatLng(<%= @room.latitude %>, <%= @room.longitude %>)
+    });
+    marker.setMap(map);
+  });
+</script>
+<%= javascript_pack_tag 'room' %>

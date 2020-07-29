@@ -1,0 +1,20 @@
+<div class="columns mt-3 is-mobile change-mobile" style="display: table !important;" id="images">
+  <% if !@room.files.blank? %>
+    <% @room.files.each do |file| %>
+      <div class="column is-half-desktop is-half-fullhd" style="display: inline-block !important;">
+        <div class="card" style="border-radius: 1vh !important;">
+          <div class="card-image">
+              <%= image_tag file %>
+          </div>
+          <div class="card-content" style="padding-top: 0.5vh !important; padding-bottom: 2rem !important;">
+            <p style="float: right;">
+              <%= link_to delete_images_room_path(room_id: @room.id, id: file.id), remote: true, method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fa fa-times"></i>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

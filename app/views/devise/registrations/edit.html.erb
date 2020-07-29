@@ -1,0 +1,66 @@
+<div class="wrapper">
+  <div class="columns">
+    <div class="column">
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <h1 class="text mb-5 ml-6" style="text-align: center;">Account overview</h1>
+      <div class="card authCard">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id: "form") do | f| %>
+          <div class="field">
+            <%= f.label :email, class: "label"%>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <%= f.email_field :email, autofocus: true, class: "input", id: "email" %>
+            </div>
+            <div class="help is-danger" id="requiredMsg" style="display:none;">Email is required</div>
+            <div class="help is-danger" id="invalidMsg" style="display:none;">Email is invalid</div>
+          </div>
+          <div class="field">
+            <%= f.label :password, class: "label" %>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+              </span>
+              <%= f.password_field :password, class: "input", id: "password" %>
+            </div>
+            <div class="help is-danger" id="requiredPassMsg" style="display:none;">Password is required</div>
+            <div class="help is-danger" id="smallPassMsg" style="display:none;">Must be atleast 6 characters</div>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, class: "label" %>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+              </span>
+              <%= f.password_field :password_confirmation, class: "input", id: "passwordConfirm" %>
+              <div class="help is-danger" id="requiredPassConfMsg" style="display:none;">Password is required</div>
+              <div class="help is-danger" id="smallPassConfMsg" style="display:none;">Must be atleast 6 characters</div>
+            </div>
+          </div>
+          <div class="actions mt-4",  style="text-align:center;margin-bottom: 6vh;">
+            <%= f.submit "Update profile", class: "button bttn has-text-weight-semibold is-dark is-rounded" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  const passwordConfirm = document.querySelector('#passwordConfirm');
+  const requiredPassConfMsg = document.querySelector('#requiredPassConfMsg');
+  const smallPassConfMsg = document.querySelector('#smallPassConfMsg');
+  passwordConfirm.addEventListener("keyup", () => {
+  if(passwordConfirm.value === ''){
+    requiredPassConfMsg.style.display = 'block';
+    smallPassConfMsg.style.display = 'none';
+  } else if(passwordConfirm.value.length < 6){
+    smallPassConfMsg.style.display = 'block';
+    requiredPassConfMsg.style.display = 'none';
+  } else{
+    requiredPassConfMsg.style.display = 'none';
+    smallPassConfMsg.style.display = 'none';
+  }
+});
+</script>
+<%= javascript_pack_tag 'auth' %>

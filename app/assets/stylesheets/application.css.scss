@@ -1,0 +1,585 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+*/
+
+@import "bulma";
+
+@media (max-width: 480px) {
+  #navbar, #laptop-form, .image, #stacks{
+    display: none !important;
+  }
+
+  .tile{
+    width: 100% !important;
+  }
+
+  .buttons{
+    float: left !important;
+  }
+
+  .column.is-three-fifths-mobile {
+    flex: none;
+    width: 100%;
+  }
+
+  h2{
+    line-height: 2.3rem !important;
+  }
+
+  .media{
+    display: block;
+  }
+
+  .roomimg{
+    height: 30vh !important;
+  }
+
+  .media-left{
+    width: 100% !important;
+  }
+
+  .field.is-grouped{
+    margin-top: 3vh !important;
+  }
+
+  .nothing{
+    margin: 30vh 0 !important;
+  }
+
+  .change-mobile{
+    display: block !important;
+  }
+
+  .listspacebtn{
+    left: 30% !important;
+  }
+
+  h1{
+    line-height: 3rem !important;
+  }
+
+  .change-column{
+    display: inline-block !important;
+  }
+  
+  .wrap{
+    padding: 2vh 2vh !important;
+  }
+
+  .items{
+    color: rgb(27, 23, 23);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .navbar{
+    padding: 10px 3vh !important;
+  }
+
+  .authCard{
+    border-radius: 3vh !important;
+    left: 7% !important;
+    padding: 5vh !important;
+    width: 90% !important;
+    margin-top: 5vh !important;
+  }
+
+  .mainText{
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .container{
+    margin-top: 2rem !important;
+  }
+
+  body{
+    margin-top: 0 !important;
+  }
+
+  .wrapper{
+    margin-bottom: 10vh !important;
+  }
+
+  .desc-column{
+    display: block !important;
+  }
+
+  .avatar{
+    float: none !important;
+    padding-right: 0 !important;
+  }
+
+  .book-column{
+    margin-top: 3vh !important;
+  }
+
+  .mapcard, #mapp{
+    left: 0 !important;
+    height: 300px !important;
+  }
+
+  .searchwrap{
+    padding-left: 5px !important;
+    padding-right: 0 !important;
+  }
+
+  .searchcolumns{
+    display: block !important;
+  }
+
+  .map, #map{
+    height: 50vh !important;
+    padding-left: 5px !important;
+    margin-bottom: 110px !important;
+  }
+
+  .payment-columns{
+    display: block !important;
+  }
+
+  .review-box{
+    margin-top: 6vh !important;
+    height: auto !important;
+    width: auto !important;
+  }
+
+  .display-img{
+    margin-top: 1vh !important;
+  }
+
+  .payment-container{
+    padding-left: 1rem !important;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .authCard{
+    border-radius: 3vh !important;
+    left: 28% !important;
+    padding: 5vh !important;
+    width: 50% !important;
+  }
+
+  .payment-columns{
+    display: block !important;
+  }
+
+  .review-box{
+    margin-top: 6vh !important;
+  }
+
+  .wrapper{
+    margin-bottom: 10vh !important;
+  }
+
+  h2{
+    line-height: 2.3rem !important;
+  }
+
+  .media-left{
+    width: 50% !important;
+  }
+
+  .field.is-grouped{
+    margin-top: 3vh !important;
+  }
+
+  .roomimg{
+    height: 35vh !important;
+  }
+
+  .listspacebtn{
+    left: 42% !important;
+  }
+
+  .tab, .tabtwo{
+    display: inline-block !important;
+  }
+
+  .desc-column{
+    display: block !important;
+  }
+
+  .book-column{
+    width: 70% !important;
+    padding-top: 5vh !important;
+  }
+
+  .avatar{
+    padding-right: 0 !important;
+  }
+
+  .fields-tab{
+    margin-top: 0 !important;
+  }
+
+  .tabtwo{
+    float: right !important;
+  }
+
+  .columns.is-mobile, .wrapper{
+    margin-top: 3.2rem;
+  }
+
+  #dropdown-menu{
+    margin-bottom: 2vh;
+  }
+
+  .wrap{
+    padding: 4vh 3vh !important;
+  }
+
+  #bottom-navbar, #laptop-form, #stacks{
+    display: none !important;
+  }
+
+  .tile{
+    width: 100% !important;
+  }
+
+  .container{
+    margin-top: 7rem !important;
+  }
+
+  .searchwrap{
+    margin-top: 4vh !important;
+  }
+
+  .searchcolumns{
+    display: block !important;
+  }
+
+  .map, #map{
+    height: 50vh !important;
+    padding-left: 5px !important;
+    margin-bottom: 110px !important;
+  }
+
+  .mapcard{
+    left: 0 !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1339px){
+  body{
+    font-family: 'Encode Sans', sans-serif;
+    margin-top: 5.2rem;
+  }
+
+  .searchwrap{
+    padding-left: 5px !important;
+    padding-right: 0 !important;
+  }
+
+  .mapcard{
+    left: 0 !important;
+  }
+
+  .media-left{
+    width: 50% !important;
+  }
+
+  .desc-column{
+    display: block !important;
+  }
+
+  .book-column{
+    width: 60% !important;
+    padding-top: 5vh !important;
+  }
+
+  .authCard {
+    width: 38%!important;
+    padding: 3.5vh !important;
+    margin-left: 34% !important;
+  }
+
+  .navbar-middle{
+    margin-left: 20%;
+  }
+
+  .searchBtn{
+    margin-right: 1vh;
+  }
+  
+  #bottom-navbar, #mobile-form{
+    display: none !important;
+  }
+
+  .payment-column{
+    margin-right: 4vh !important;
+  }
+
+  .guestCard{
+    width: 25% !important;
+    margin-left: 65% !important;
+  }
+
+  .space{
+    padding-left: 10vh !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .authCard{
+    border-radius: 3vh !important;
+    left: 35% !important;
+    padding: 5vh !important;
+    width: 35% !important;
+  }
+
+  .payment-columns{
+    padding: 0 20vh !important;
+  }
+
+  .space{
+    padding-left: 20vh !important;
+  }
+
+  #checkin-error{
+    position: absolute;
+    left: 51%;
+    margin-top: 10px;
+  }
+
+  #checkout-error{
+    position: absolute;
+    left: 65%;
+    margin-top: 10px;
+  }
+
+  body{
+    font-family: 'Encode Sans', sans-serif;
+    margin-top: 5.2rem;
+  } 
+
+  .searchBtn{
+    margin-left: 1.5vh;
+  }
+
+  #bottom-navbar, #mobile-form{
+    display: none !important;
+  }
+}
+
+a{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.searchBtn, .searchBtn:hover{
+  cursor: pointer !important;
+  display: inline-block !important;
+  margin-top: 0.5vh;
+  position: relative !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-color: black !important;
+  width: auto !important;
+  -ms-touch-action: manipulation !important;
+  touch-action: manipulation !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  outline: none !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.1s ease, transform 0.1s ease !important;
+  -moz-transition: box-shadow 0.2s ease, transform 0.1s ease !important;
+  transition: box-shadow 0.2s ease, -ms-transform 0.1s ease, -webkit-transform 0.1s ease, transform 0.1s ease !important;
+  border: none !important;
+  background: -webkit-linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%) !important;
+  background: -moz-linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%) !important;
+  background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%) !important;
+  color: #FFFFFF !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.dropBtn{
+  background-color: white !important;
+  padding: 2.8vh 5vh !important;
+  border-radius: 25px !important;
+  border-color: #dfdfdf !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dropBtn:focus{
+  outline: none !important;
+}
+
+.card{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 5%;
+  border-radius: 3vh;
+}
+
+.locationBtn{
+  width: 34vh;
+  height: auto;
+  padding-top: 1.8vh;
+  padding-bottom: 1.8vh;
+}
+
+.locationBtn:hover{
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  border-color: #dbdbdb;
+}
+
+.buttons .button{
+  background-color: #4a4747;
+  border-color: #4a4747;
+  color: white;
+}
+
+.buttons .button:hover, .button:focus{
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.15em);
+}
+
+.wrapper{
+  min-height: 100%;
+  margin-bottom: 10vh;
+}
+
+.bttn{
+  width: 100%;
+}
+
+.continue, .continue:hover{
+  font-weight: 500;
+  color: white;
+}
+
+.continue_google, .continue_google:hover{
+  font-weight: 500;
+  color: black;
+}
+
+.text{
+  margin-top: 3%;
+  font-size: 3.4rem;
+  font-weight: 600;
+}
+
+.help.is-danger{
+  color: #cc0a30;
+}
+
+.help{
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.footer{
+  left: 0;
+  bottom: 0;
+  width: 101%;
+}
+
+.break{
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid rgb(177, 177, 177); 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+} 
+
+.break span{
+  background:#fff; 
+  padding:0 10px;
+}
+
+.link{
+  color: #4a4a4a;
+}
+
+.link:hover{
+  text-decoration: underline;
+  color: #4a4a4a;
+}
+
+
+.direct-upload {
+  display: inline-block;
+  position: relative;
+  padding: 2px 4px;
+  margin: 0 3px 3px 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.direct-upload--pending {
+  opacity: 0.6;
+}
+
+.direct-upload__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background: #0076ff;
+  transition: width 120ms ease-out, opacity 60ms 60ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+
+.direct-upload--complete .direct-upload__progress {
+  opacity: 0.4;
+}
+
+.direct-upload--error {
+  border-color: red;
+}
+
+input[type=file][data-direct-upload-url][disabled] {
+  display: none;
+}
+
+.buttons{
+  float: right;
+}
+
+li{
+  display: inline-block;
+  margin-right: 2vh;
+}
+
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus {
+    background-color: transparent;
+    color: black;
+    outline: none;
+}
+
+hr{
+  background-color: #e0e0e0;
+  border: none;
+  display: block;
+  height: 1px;
+  margin: 1vh 0;
+}

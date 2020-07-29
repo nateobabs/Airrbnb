@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2020-07-25 12:33:21
+  end_date: 2020-07-25 12:33:21
+  price: 1
+  total: 1.5
+  user: one
+  room: one
+
+two:
+  start_date: 2020-07-25 12:33:21
+  end_date: 2020-07-25 12:33:21
+  price: 1
+  total: 1.5
+  user: two
+  room: two

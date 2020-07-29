@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Airrbnb</title>
+    <%= favicon_link_tag 'airrbnb.png' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="turbolinks-visit-control" content="reload">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_MAPS_API']%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'home/navbar' %>
+    <%= render 'layouts/errors' %>   
+    <%= yield %>
+    <%= render 'home/footer' %>
+  </body>
+</html>

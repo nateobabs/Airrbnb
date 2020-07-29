@@ -1,0 +1,112 @@
+<div class="wrapper trip-wrap">
+  <div class="container is-fluid payment-container">
+    <div class="columns is-mobile payment-columns">
+      <div class="column is-half-fullhd is-two-fifths-desktop payment-column">
+        <h1 class="is-size-1 has-text-weight-bold">Review your stay</h1>
+        <h2 class="is-size-4 has-text-weight-bold mt-5 mb-5">
+          <%= pluralize(@nights, 'nights') %> in <%= @room.city %>
+        </h2>
+        <div style="display:inline-flex;">
+          <div class="small-box">
+            <span class="date"><%= @reservation.start_date.split(' ')[1] %></span>
+            <span class="date ml-2"><%= @reservation.start_date.split(' ')[0] %></span>
+          </div>
+          <div class="mr-6 mt-2 ml-2"><span class="date">Checkin</span></div>
+          <div class="small-box ml-6">
+            <span class="date"><%= @reservation.end_date.split(' ')[1] %></span>
+            <span class="date ml-2"><%= @reservation.end_date.split(' ')[0] %></span>
+          </div>
+          <div class="mt-2 ml-2"><span class="date">Checkout</span></div>
+        </div>
+        <div>
+          <%= form_tag room_checkout_path, id: "payment-form" do %>
+            <%= submit_tag "Confirm and pay", class: "searchBtn mt-6", style: "margin-left: 0 !important;", id: "checkout" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box review-box">
+          <div style="display:inline-block;" class="mb-4 mt-3">
+            <div style="float:left" class="mr-4">
+              <h3 class="is-size-4 has-text-weight-bold"><%= @room.listing_name %></h3>
+              <h4 class="is-size-5 mb-3"><%= @room.room_type %> in <%= @room.city %></h4>
+              <span class="is-size-6">
+                <img src="https://img.icons8.com/fluent/25/000000/verified-account.png"  style="vertical-align:middle;"/>
+                Verified Stay
+              </span>
+            </div>
+            <div style="float:left">
+              <%= image_tag @room.files.first , style: "width: 15vh;height: 10vh;", class: "display-img"%>
+            </div>
+          </div>  
+          <hr>
+          <div class="mt-4">
+            <span><p><i class="fa fa-male mr-2"></i><%= pluralize(@reservation.total, 'guest') %></p></span>
+          </div>
+          <div style="display: inline-flex;" class="mb-4 mt-3">
+            <p class="mr-2"><i class="fa fa-calendar mr-2"></i><%= @reservation.start_date %></p>
+            <img src="https://img.icons8.com/android/20/000000/long-arrow-right.png"/>
+            <p class="ml-2"><i class="fa fa-calendar mr-2"></i><%= @reservation.end_date %></p>
+          </div>
+          <hr>
+          <div class="mt-4 mb-4">
+            <span style="display: inline-flex;">
+              <p><%= @room.price %> x <%= pluralize(@nights, 'night') %></p>
+            </span>
+            <span style="float:right;">
+              <p class="price"></i><%= @reservation.price %></p>
+            </span>
+          </div>
+          <hr>
+          <div class="mt-4">
+            <span style="display: inline-flex;"><strong><p>Total(INR)</p></strong></span>
+            <span style="float:right;">
+              <strong><p class="price"></i><%= @reservation.price %></p></strong>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  let price = document.querySelectorAll('.price');
+  price.forEach(p => {
+    x = p.textContent.toString();
+    var lastThree = x.substring(x.length-3);
+    var otherNumbers = x.substring(0,x.length-3);
+    if(otherNumbers != '')
+        lastThree = ',' + lastThree;
+    p.textContent = '₹ ' + otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  });
+</script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+  var $form = $('#payment-form');
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_S8ofBbsrsGO6nJLSzwD7wUST00DGuhKVzW',
+    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    token: function(token) {
+      $form.append($('<input type="hidden" name="stripeToken" />').val(token.id));
+      $form.append($('<input type="hidden" name="price" />').val(<%= @reservation.price %>));
+      $form.append($('<input type="hidden" name="reservation_id" />').val(<%= @reservation.id %>));
+      $form.get(0).submit();
+    }
+  });
+
+  document.getElementById('checkout').addEventListener('click', function(e) {
+    handler.open({
+      name: 'Airrbnb Pay',
+      description: 'Book your stay',
+      currency: 'inr',
+      amount: <%= @reservation.price %> * 100
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation:
+  window.addEventListener('popstate', function() {
+    handler.close();
+  });
+</script>

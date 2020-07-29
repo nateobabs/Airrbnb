@@ -1,0 +1,144 @@
+<%= form_for(@room) do |f| %>
+  <div class="columns mt-4 is-mobile change-mobile">
+    <div class="column is-two-fifths-mobile is-one-third-desktop is-one-third-fullhd change-column">
+      <div class="field">
+        <label class="label">Home Type</label>
+        <div class="control">
+          <div class="select">
+            <%= f.select(:home_type, options_for_select([["Apartment", "Apartment"], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]])) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-two-fifths-mobile is-one-third-desktop is-one-third-fullhd change-column">
+      <div class="field">
+        <label class="label">Room Type</label>
+        <div class="control">
+          <div class="select">
+            <%= f.select(:room_type, options_for_select([["Entire place", "Entire place"], ["Private room", "Private room"], ["Shared room", "Shared room"]])) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-two-fifths-mobile is-one-third-desktop is-one-third-fullhd change-column">
+      <div class="field">
+        <label class="label">Accomodate</label>
+        <div class="control">
+          <div class="select">
+            <%= f.select(:accomdate, options_for_select([["for 1 guest", 1], ["for 2 guests", 2], ["for 3 guests", 3], ["for 4 guests", 4], ["for 5 guests", 5], ["for 6 guests", 6]])) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column is-two-fifths-mobile is-one-third-desktop is-one-third-fullhd change-column">
+      <div class="field">
+        <label class="label">Bedroom</label>
+        <div class="control">
+          <div class="select">
+            <%= f.select(:bedroom, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4]]), prompt: "Bedrooms") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-two-fifths-mobile is-one-third-desktop is-one-third-fullhd change-column">
+      <div class="field">
+        <label class="label">Bathroom</label>
+        <div class="control">
+          <div class="select">
+            <%= f.select(:bathroom, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4]]), prompt: "Bathrooms") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column">
+      <div class="field">
+        <label class="label">Listing Name</label>
+        <div class="control">
+          <%= f.text_field :listing_name, class: "input", placeholder: "Be clear and descriptive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column">
+      <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+          <%= f.text_area :summary, class: "textarea", placeholder: "Tell about your accomodation..." %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column is-half-fullhd is-half-desktop">
+      <div class="field">
+        <label class="label">City</label>
+        <div class="control">
+          <%= f.text_field :city, class: "input", placeholder: "Enter your city" %>
+        </div>
+      </div>
+    </div>
+    <div class="column is-half-fullhd is-half-desktop">
+      <div class="field">
+        <label class="label">State</label>
+        <div class="control">
+          <%= f.text_field :state, class: "input", placeholder: "Enter your state" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column">
+      <div class="field">
+        <label class="label">Address</label>
+        <div class="control">
+          <%= f.text_field :address, class: "input", placeholder: "What is your address?" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column is-one-fifth-desktop is-one-fifth-fullhd">
+      <div class="field">
+        <label class="checkbox"><%= f.check_box :is_kitchen, class: "mr-1" %>Kitchen</label>
+      </div>
+    </div>
+    <div class="column is-one-fifth-desktop is-one-fifth-fullhd">
+      <div class="field">
+        <label class="checkbox"><%= f.check_box :is_tv, class: "mr-1" %>TV</label>
+      </div>
+    </div>
+    <div class="column is-one-fifth-desktop is-one-fifth-fullhd">
+      <div class="field">
+        <label class="checkbox"><%= f.check_box :is_internet, class: "mr-1" %>Wifi</label>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column">
+      <div class="field">
+        <label class="label">Price</label>
+        <div class="control has-icons-left">
+          <%= f.text_field :price, class: "input", placeholder: "xxxx" %>
+          <span class="icon is-left"><i class="fa fa-rupee", style="color: rgb(23, 23, 23);"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-3 is-mobile change-mobile">
+    <div class="column">
+      <div class="field">
+        <label class="label">Add Images<span style="color: #ff5b5b; font-size: 0.8rem;"> (Add atleast 5 images)</span></label>
+        <div class="control">
+          <%= f.file_field :files, multiple: true, direct_upload: true, class: "input" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'images' %>
+  <%= f.submit @room.persisted? ? "Update your space" : "Create your space", class: "button is-dark mt-5 chng" %>
+<% end %>

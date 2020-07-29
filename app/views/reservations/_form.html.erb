@@ -1,0 +1,50 @@
+<div class="column book-column">
+  <%= form_for([@room, @room.reservations.build]) do |f| %>
+    <div class="card book-card">
+      <h3 class="is-size-5 mb-5"><strong><i class="fa fa-rupee mr-1"></i><%= @room.price %></strong> / night</h3>
+      <div class="columns is-mobile fields-tab">
+        <div class="column is-half-fullhd is-half-desktop is-half-mobile checkin">
+          <div class="field">
+            <div class="control">
+              <label class="label" style="font-size: 11px !important;" id="checkin">CHECK-IN</label>
+              <input id="checkinDate" type="text" class="searchInput mb-2" onfocus="(this.type='date')" placeholder="Add date" style="background-color: transparent !important;" >
+              <%= f.hidden_field :start_date, id: "start_date" %>
+            </div>
+          </div>
+        </div>
+        <div class="column is-half-fullhd is-half-desktop is-half-mobile  checkout">
+          <div class="field">
+            <div class="control">
+              <label class="label" style="font-size: 11px !important;" id="checkout">CHECK-OUT</label>
+              <input id="checkoutDate" type="text" class="searchInput mb-2" onfocus="(this.type='date')" placeholder="Add date" style="background-color: transparent !important;" >
+              <%= f.hidden_field :end_date, id: "end_date" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns guest-select">
+        <div class="select">
+          <%= f.select(:total, options_for_select([["1 guest", 1], ["2 guests", 2], ["3 guests", 3], ["4 guests", 4], ["5 guests", 4], ["6 guests", 4]]), {include_blank: "Add Guests"}) %>
+        </div>
+      </div>
+      <%= f.hidden_field :price, id: "price" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      
+      <%= hidden_field_tag "cost", @room.price, id: "cost" %>
+      <%= hidden_field_tag "nights", params[:nights], id: "total_nights" %>
+      <%= f.submit "Book Now", class: "searchBtn mt-3", style: "width: 100% !important; margin-left: 0 !important;" %>
+      <div id="charges" style="display: none;" class="mt-4">
+        <div>
+          <span style="text-decoration: underline;">
+            <i class="fa fa-rupee mr-1"></i><%= @room.price %> X <span id="nights"></span> nights</span>
+          <span id="total_cal"><i class="fa fa-rupee mr-1"></i></span>
+        </div>
+        <hr>
+        <div>
+          <span><strong>Total</strong></span>
+          <span id="total_price"><i class="fa fa-rupee mr-1"></i></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

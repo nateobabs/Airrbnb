@@ -1,0 +1,118 @@
+<nav class="navbar is-fixed-top" id="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path, class: "navbar-item" do %>
+      <%= image_tag("airrbnb.png", class: "img") %>
+      <h1 class="brand ml-1">airrbnb</h1>
+    <% end %>
+
+    <a role="button" class="navbar-burger burger" id="toggle" aria-label="menu" aria-expanded="false" data-target="navbarToggle">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarToggle" class="navbar-menu">
+    <div class="navbar-middle">
+      <button class="locationBtn button is-rounded">
+        <span class="icon has-text-info">
+          <i id="icon" class="fa fa-search icon"></i>
+        </span>
+        <h4>
+          <%= link_to "Find a location", root_path, class: "location", style: "color:black;" %>
+        </h4>
+      </button>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if !user_signed_in? %>
+            <strong><%= link_to "Sign Up", new_user_registration_path, class: "button is-rounded mr-3" %></strong>
+            <strong><%= link_to "Log in", new_user_session_path, class: "button is-rounded" %></strong>
+        </div>
+        <% else %>
+          <div class="dropdown is-right">
+            <div class="dropdown-trigger">
+              <button class="button dropBtn" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span class="icon">
+                  <img src="https://img.icons8.com/android/15/000000/menu.png", class="mr-3"/>
+                  <img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png"/>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <%= link_to "Trips", trips_path, class:"dropdown-item" %>
+                <%= link_to "Host your home", new_room_path, class:"dropdown-item" %>
+                <%= link_to "Your listings", rooms_path, class:"dropdown-item" %>
+                <%= link_to "Account", edit_user_registration_path(@user), class:"dropdown-item" %>
+                <hr class="dropdown-divider">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
+<nav class="navbar is-fixed-bottom" id="bottom-navbar" role="navigation" aria-label="main navigation">
+  <% if !user_signed_in? %>
+    <div class="columns is-mobile mt-1">
+      <div class="column is-offset-1">
+        <%= link_to root_path, class: "items" do %>
+          <img src="https://img.icons8.com/color/40/000000/airbnb.png"/>
+          <span style="display:block;">Explore</span>
+        <% end %>
+      </div>
+      <div class="column">
+        <%= link_to new_user_registration_path, class: "items" do %>
+          <img src="https://img.icons8.com/ios/40/000000/send-letter--v1.png"/>
+          <span style="display:block;">Sign Up</span>
+        <% end %>
+      </div>
+      <div class="column">
+        <%= link_to new_user_session_path, class: "items" do %>
+          <img src="https://img.icons8.com/carbon-copy/40/000000/user-male-circle.png"/>
+          <span style="display:block;">Log In</span>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="columns is-mobile mt-1">
+      <div class="column">
+        <%= link_to root_path, class: "items" do %>
+          <img src="https://img.icons8.com/color/40/000000/airbnb.png"/>
+          <span style="display:block;">Explore</span>
+        <% end %>
+      </div>
+      <div class="column">
+        <%= link_to trips_path, class: "items" do %>
+          <img src="https://img.icons8.com/nolan/40/trekking.png"/>
+          <span style="display:block;">Trips</span>
+        <% end %>
+      </div>
+      <div class="column">
+        <%= link_to new_room_path, class: "items" do %>
+          <img src="https://img.icons8.com/cotton/40/000000/home.png"/>
+          <span style="display:block;">Host</span>
+        <% end %>
+      </div>
+      <div class="column">
+        <%= link_to edit_user_registration_path(@user), class: "items" do %>
+          <img src="https://img.icons8.com/carbon-copy/40/000000/user-male-circle.png"/>
+          <span style="display:block;">Profile</span>
+        <% end %>
+      </div>
+      <div class="column">
+        <%= link_to destroy_user_session_path, method: :delete, class: "items" do %>
+          <img src="https://img.icons8.com/carbon-copy/40/000000/logout-rounded-down.png"/>
+          <span style="display:block;">Logout</span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</nav>
+<%= javascript_pack_tag 'navbar' %>
+<%= javascript_pack_tag 'bottom-navbar' %>

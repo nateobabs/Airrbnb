@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="columns">
+    <div class="column">
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <h1 class="text mb-5" style="text-align: center">Log In</h1>
+      <div class="card authCard">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <%= f.email_field :email, autofocus: true, class: "input", id: "email" %>
+            </div>
+            <div class="help is-danger" id="requiredMsg" style="display:none;">Email is required</div>
+            <div class="help is-danger" id="invalidMsg" style="display:none;">Email is invalid</div>
+          </div>
+          <div class="field">
+            <%= f.label :password, class: "label" %>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+              </span>
+              <%= f.password_field :password, class: "input", id: "password" %>
+            </div>
+            <div class="help is-danger" id="requiredPassMsg" style="display:none;">Password is required</div>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me, style: "display: inline-block" %>
+              <%= f.label :remember_me, class: "label", style: "display: inline-block;" %>
+            </div>
+          <% end %>
+          <div class="actions mt-4",  style="text-align:center;margin-bottom: 6vh;">
+            <%= f.submit "Log In", class: "button bttn has-text-weight-semibold is-dark is-rounded" %>
+          </div>
+        <% end %>
+        <div class="break mb-6">
+          <span><strong style="color: rgb(177, 177, 177);">or</strong></span>
+        </div>
+        <div class="auths">
+          <button class="button bttn mb-3 is-link">
+            <span class="icon is-medium is-left">
+              <i class="fa fa-facebook"></i>
+            </span>
+          <%= link_to 'Continue with Facebook', user_facebook_omniauth_authorize_path ,class: "continue" %>
+          </button>
+          <button class="button bttn mb-3 is-light">
+            <span class="icon is-medium">
+              <i class="fa fa-google"></i>
+            </span>
+            <%= link_to 'Continue with Google', user_google_oauth2_omniauth_authorize_path ,class: "continue_google" %>
+          </button>
+          <button class="button bttn mb-3 is-warning">
+            <span class="icon is-medium is-left">
+              <i class="fa fa-github"></i>
+            </span>
+            <%= link_to 'Continue with Github', user_github_omniauth_authorize_path ,class: "continue" %>
+          </button>
+        </div>
+        <span style="font-weight: 700">Don't have an account? 
+          <%= link_to "Sign Up", new_user_registration_path, style: "text-decoration: underline;" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_pack_tag 'auth' %>
