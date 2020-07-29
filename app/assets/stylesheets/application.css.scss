@@ -21,6 +21,10 @@
     display: none !important;
   }
 
+  .tabtwo{
+    padding-bottom: 2vh !important;
+  }
+
   .tile{
     width: 100% !important;
   }
@@ -274,7 +278,7 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1339px){
+@media (min-width: 1024px) and (max-width: 1215px){
   body{
     font-family: 'Encode Sans', sans-serif;
     margin-top: 5.2rem;
@@ -334,7 +338,7 @@
   }
 }
 
-@media (min-width: 1340px) {
+@media (min-width: 1216px) {
   .authCard{
     border-radius: 3vh !important;
     left: 35% !important;
