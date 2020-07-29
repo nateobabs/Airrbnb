@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="columns is-mobile mt-5 desc-column" style="padding-right: 5% !important;">
-      <div class="column is-two-thirds-fullhd is-full-desktop is-full-mobile">
+      <div class="column is-two-thirds-widescreen is-full-desktop is-full-mobile">
         <h2 class="is-size-3 has-text-weight-semibold" style="display: inline-block !important;">
           <%= @room.room_type.capitalize %> hosted by <%= @room.user.email.split('@')[0] %>
         </h2>
@@ -43,7 +43,7 @@
         <h4 class="is-size-4 mt-5 has-text-weight-semibold">Amenities</h4>
         <div class="columns is-mobile mt-3" style="display: inline !important;">
           <% if @room.is_tv %>
-            <div class="column is-half-desktop is-half-mobile is-half-fullhd" style="display: inline-block !important;">
+            <div class="column is-half-desktop is-half-mobile is-half-widescreen" style="display: inline-block !important;">
               <div>
                 <img src="https://img.icons8.com/ios/50/000000/tv-show.png"/>
                 <p class="is-size-5 amenities">TV</p>
@@ -51,7 +51,7 @@
             </div>
           <% end %>
           <% if @room.is_internet %>
-            <div class="column is-half-desktop is-half-mobile is-half-fullhd" style="display: inline-block !important;">
+            <div class="column is-half-desktop is-half-mobile is-half-widescreen" style="display: inline-block !important;">
               <div>
                 <img src="https://img.icons8.com/android/48/000000/wifi.png"/>
                 <p class="is-size-5 amenities">Wifi</p>
@@ -59,7 +59,7 @@
             </div>
           <% end %>
           <% if @room.is_kitchen %>
-            <div class="column is-half-desktop is-half-mobile is-half-fullhd" style="display: inline-block !important; padding-left: 0 !important;">
+            <div class="column is-half-desktop is-half-mobile is-half-widescreen" style="display: inline-block !important; padding-left: 0 !important;">
               <div>
                 <img src="https://img.icons8.com/emoji/48/000000/fork-and-knife-with-plate-emoji.png"/>
                 <p class="is-size-5 amenities">Kitchen</p>

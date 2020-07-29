@@ -3,7 +3,7 @@
     <%= form_tag(search_path, method: :get, id: "laptop-form", class: "mr-5 ml-5", autocomplete: "off") do %>
       <div class="formFields">
         <div class="columns is-gapless is-mobile">
-          <div class="column is-half-fullhd is-one-quarter-desktop">
+          <div class="column is-half-widescreen is-one-quarter-desktop">
             <div class="searchDiv">
               <label class="searchLabel">Location</label>
               <%= text_field_tag(:location, params[:search], class: "searchInput", placeholder: "Where are you going?", id:"autocomplete_address" )%>
@@ -72,7 +72,7 @@
     </form>
     <div class="home">
       <div class="columns is-mobile">
-        <div class="column is-half-fullhd is-full-mobile is-three-quarters-desktop">
+        <div class="column is-half-widescreen is-full-mobile is-three-quarters-desktop">
           <h1 class="mainText mb-1">You don't need to go far to find what matters.</h1>
         </div>
         <div class="column"></div>
