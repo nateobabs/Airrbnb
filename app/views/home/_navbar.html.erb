@@ -52,6 +52,17 @@
               </div>
             </div>
           </div>
+          <script>
+            const dropdownTrigger = document.querySelector('.dropBtn');
+            const dropdownMenu = document.querySelector('.dropdown');
+            dropdownTrigger.addEventListener('click', () => {
+              if(!dropdownMenu.classList.contains('is-active')){
+                dropdownMenu.classList.add('is-active');
+              } else{
+                dropdownMenu.classList.remove('is-active');
+              }
+            });
+          </script>
         <% end %>
       </div>
     </div>
@@ -116,3 +127,4 @@
 </nav>
 <%= javascript_pack_tag 'navbar' %>
 <%= javascript_pack_tag 'bottom-navbar' %>
+

@@ -21,6 +21,11 @@
     display: none !important;
   }
 
+  html, body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   .tabtwo{
     padding-bottom: 2vh !important;
   }
@@ -64,6 +69,10 @@
 
   .change-mobile{
     display: block !important;
+  }
+
+  .footer{
+    width: 102% !important;
   }
 
   .listspacebtn{

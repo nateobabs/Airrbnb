@@ -60,16 +60,16 @@
         <button id="plus"><i class="fa fa-plus-circle ml-1"></i></button> 
       </span>
     </div>
-    <form id="mobile-form">
+    <%=  form_tag(search_path, method: :get, id: "mobile-form", autocomplete: "off") do %>
       <div class="field">
         <p class="control has-icons-left">
-          <input type="text" class="input is-rounded is-medium" placeholder="Where are you going?">
+        <%= text_field_tag(:location, params[:search], class: "input is-rounded is-medium", placeholder: "Where are you going?", id:"autocomplete_address" ) %>
           <span class="icon is-left">
             <img src="https://img.icons8.com/ios/25/000000/search--v1.png"/>
           </span>
         </p>
       </div>
-    </form>
+    <% end %>
     <div class="home">
       <div class="columns is-mobile">
         <div class="column is-half-widescreen is-full-mobile is-three-quarters-desktop">
