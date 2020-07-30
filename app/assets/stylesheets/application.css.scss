@@ -398,8 +398,12 @@
     width: 35% !important;
   }
 
+  .payment-column{
+    width: 40% !important;
+  }
+
   .payment-columns{
-    padding: 0 20vh !important;
+    padding: 0 10vh !important;
   }
 
   .space{
@@ -425,6 +429,10 @@
 
   .searchBtn{
     margin-left: 1.5vh;
+  }
+
+  .mapCard{
+    left: 5% !important;
   }
 
   #bottom-navbar, #mobile-form{
