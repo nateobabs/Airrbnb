@@ -47,6 +47,8 @@ gem 'activerecord-session_store', '~> 1.0'
 gem 'geocoder'
 # Stripe
 gem 'stripe'
+#AWS
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,10 +58,6 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-end
-
-group :development do
-  gem 'pg'
 end
 
 group :test do
