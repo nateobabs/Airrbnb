@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   belongs_to :user
   has_many_attached :files
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   geocoded_by :room_address
   after_validation :geocode, if: :room_address_changed?
