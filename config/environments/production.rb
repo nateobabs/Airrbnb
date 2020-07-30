@@ -72,6 +72,7 @@ Rails.application.configure do
     address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain
+    enable_starttls_auto: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
