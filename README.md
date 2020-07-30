@@ -5,3 +5,4 @@
 * **Bulma Css framework**
 * **Stripe checkout integration**
 * **Google Maps integration**
+* **Image uploading with AWS S3 bucket**
