@@ -1,5 +1,5 @@
 <div class="columns mt-3 is-mobile change-mobile" style="display: table !important;" id="images">
-  <% if !@room.files.blank? %>
+  <% if @room.persisted? %>
     <% @room.files.each do |file| %>
       <div class="column is-half-desktop is-half-widescreen" style="display: inline-block !important;">
         <div class="card" style="border-radius: 1vh !important;">
