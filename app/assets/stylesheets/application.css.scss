@@ -177,6 +177,30 @@
     padding-left: 1rem !important;
   }
 
+  .trip-wrap{
+    margin-top: 2vh !important;
+  }
+
+  .is-size-4{
+    line-height: 2rem !important;
+  }
+
+  .no-trip-img{
+    height: 40vh !important;
+  }
+
+  .tittle{
+    margin-bottom: 1.5rem !important;
+  }
+
+  .cancel{
+    width: 40% !important;
+  }
+
+  .trip-box{
+    width: 90% !important;
+  }
+
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -189,6 +213,19 @@
 
   .payment-columns{
     display: block !important;
+  }
+
+  .trip-box{
+    width: 90% !important;
+    padding: 2vh !important;
+  }
+
+  .trip_img{
+    height: 53vh !important;
+  }
+
+  .cancel{
+    width: 40% !important;
   }
 
   .review-box{
