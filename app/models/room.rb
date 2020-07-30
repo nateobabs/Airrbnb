@@ -9,7 +9,7 @@ class Room < ApplicationRecord
   validates :files, limit: {min: 5, max: 5}
   validates :home_type, :room_type, :accomdate, :bedroom, :bathroom, :listing_name, :summary, :address, :city, :state, presence: true
   validates :listing_name, length: {maximum: 50}, presence: true
-  validates :summary, length: {maximum: 3000}, presence: true
+  validates :summary, length: {maximum: 5000}, presence: true
 
   def room_address
     [city, state].compact.join(', ')
