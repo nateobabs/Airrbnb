@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper edit-wrap">
   <div class="columns">
     <div class="column">
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -38,7 +38,7 @@
               <div class="help is-danger" id="smallPassConfMsg" style="display:none;">Must be atleast 6 characters</div>
             </div>
           </div>
-          <div class="actions mt-4",  style="text-align:center;margin-bottom: 6vh;">
+          <div class="actions mt-6",  style="text-align:center;">
             <%= f.submit "Update profile", class: "button bttn has-text-weight-semibold is-dark is-rounded" %>
           </div>
         <% end %>

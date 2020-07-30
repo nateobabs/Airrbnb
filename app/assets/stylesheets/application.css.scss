@@ -21,6 +21,11 @@
     display: none !important;
   }
 
+  .text{
+    margin-left: 0 !important;
+    margin-top: 8% !important;
+  }
+
   html, body {
     padding: 0 !important;
     margin: 0 !important;
@@ -123,7 +128,7 @@
   }
 
   .wrapper{
-    margin-bottom: 10vh !important;
+    margin-bottom: 15vh !important;
   }
 
   .desc-column{
@@ -179,6 +184,7 @@
 
   .trip-wrap{
     margin-top: 2vh !important;
+    margin-bottom: 15vh !important;
   }
 
   .is-size-4{
@@ -190,7 +196,7 @@
   }
 
   .tittle{
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 3rem !important;
   }
 
   .cancel{
