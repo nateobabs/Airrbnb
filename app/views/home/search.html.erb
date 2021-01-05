@@ -20,7 +20,9 @@
           <% end %>
           <article class="media">
             <div class="media-left">
-              <%= image_tag room.files.first, class: "searchimg" %>
+              <% if room.urls.length > 0 %>
+                <%= image_tag room.urls[0], class: "searchimg" %>
+              <% end %>
             </div>
             <div class="media-content">
               <span class="is-size-6"><%= room.home_type %> in <%= room.city %></span>

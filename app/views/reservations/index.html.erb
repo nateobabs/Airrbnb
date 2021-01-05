@@ -5,7 +5,7 @@
       <div class="box trip-box">
         <div class="media">
           <div class="media-left">
-            <%= image_tag reservation.room.files.first, class: "trip_img" %>
+            <%= image_tag reservation.room.urls[0], class: "trip_img" %>
           </div>
           <div class="media-content">
             <h1 class="is-size-4 has-text-weight-bold"><%= reservation.room.listing_name %></h1>

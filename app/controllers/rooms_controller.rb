@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-
   before_action :set_room, only: [:show, :edit, :destroy, :update]
   before_action :authenticate_user!, except: [:index]
   
@@ -32,6 +31,12 @@ class RoomsController < ApplicationController
   end
 
   def update
+    urls = JSON.parse params[:room][:urls]
+    urls.each do |url|
+      if !@room.urls.include?(url)
+        @room.urls << url
+      end
+    end
     if @room.update(room_params)
       redirect_to edit_room_path(@room)
       flash[:notice] = "Your space was updated successfully..."
@@ -49,8 +54,9 @@ class RoomsController < ApplicationController
   def delete_images
     @room = Room.find(params[:room_id])
     if current_user.id == @room.user.id
-      @image = ActiveStorage::Attachment.find(params[:id])
-      @image.purge
+      index = params[:image_id]
+      @room.urls.delete_at(index.to_i)
+      @room.save
       respond_to :js
     else
       flash[:alert] = "You don't have permission"
@@ -64,11 +70,12 @@ class RoomsController < ApplicationController
     end
 
     def room_params
+      params[:room][:urls] ||= []
       params.require(:room).permit(
         :home_type, :room_type, :accomdate,
         :bedroom, :bathroom, :listing_name,:city, 
         :state, :summary, :address, :is_tv, :is_kitchen,
-        :is_air, :is_heating, :is_internet, :price, files: []
+        :is_air, :is_heating, :is_internet, :price, urls: []
       )
     end
   

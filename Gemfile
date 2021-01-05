@@ -35,10 +35,12 @@ gem 'image_processing', '~> 1.2'
 gem 'active_storage_validations'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Omniauth
+gem 'omniauth-oauth2', '1.3.1'
 # Use Omniauth Facebook plugin
-gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-facebook'
 # Use Omniauth Github plugin
-gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+gem 'omniauth-github'
 # Use Omniauth Google plugin
 gem 'omniauth-google-oauth2'
 # Use ActiveRecord Sessions
@@ -47,10 +49,9 @@ gem 'activerecord-session_store', '~> 1.0'
 gem 'geocoder'
 # Stripe
 gem 'stripe'
-#AWS
-gem 'aws-sdk-s3'
 #rack-cors
 gem 'rack-cors'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

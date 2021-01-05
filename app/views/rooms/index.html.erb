@@ -5,7 +5,9 @@
       <% @rooms.each do |room| %>
         <article class="media">
           <div class="media-left">
-            <%= image_tag room.files.first, class: "roomimg" %>
+            <% if room.urls.length > 0 %>
+              <%= image_tag room.urls[0], class: "roomimg" %>
+            <% end %>
           </div>
           <div class="media-content">
             <span class="is-size-5"><%= room.home_type %> in <%= room.city %></span>

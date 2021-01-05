@@ -1,13 +1,12 @@
 class Room < ApplicationRecord
   belongs_to :user
-  has_many_attached :files
   has_many :reservations, dependent: :destroy
 
   geocoded_by :room_address
   after_validation :geocode, if: :room_address_changed?
-
-  validates :files, limit: {min: 5, max: 5}
+  
   validates :home_type, :room_type, :accomdate, :bedroom, :bathroom, :listing_name, :summary, :address, :city, :state, presence: true
+  validates :urls, length: { maximum: 5, message: "Only 5 images are required" }
   validates :listing_name, length: {maximum: 50}, presence: true
   validates :summary, length: {maximum: 5000}, presence: true
 

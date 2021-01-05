@@ -1,4 +1,7 @@
 class Users::OmniauthController < Devise::RegistrationsController
+
+  skip_before_action :verify_authenticity_token, only: [:facebook, :google_oauth2, :github]
+
   def facebook
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?

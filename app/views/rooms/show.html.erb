@@ -5,17 +5,19 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child">
-          <%= image_tag @room.files.first, class: "show-room-img"%>
+          <% if @room.urls.length > 0 %>
+            <%= image_tag @room.urls[0], class: "show-room-img main-img"%>
+          <% end %>
         </div>
         <div class="tile" style="padding: 0 1vh !important"id="stacks">
           <div class="columns stack-images">
-          <% @room.files.each_with_index do |file, index| %>
-            <% if index != 0 %>
-              <div class="column is-half stack-columns">
-                <%= image_tag file, class: "show-room-img"%>
-              </div>
+            <% @room.urls.each_with_index do |url, index| %>
+              <% if index != 0 %>
+                <div class="column is-half stack-columns">
+                  <%= image_tag url, class: "show-room-img stack-img"%>
+                </div>
               <% end %>
-          <% end %>
+            <% end %>
           </div>
         </div>
       </div>
