@@ -6,3 +6,4 @@
 * **Stripe checkout integration**
 * **Google Maps integration**
 * **Image uploading with AWS S3 bucket**
+###### Note: Developed only for learning purpose, copyrights belongs to original developers.
