@@ -16,6 +16,12 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+$('body').on('click', (e) => {
+  if(![showGuestBtn, minusBtn, plusBtn, card].includes(e.target.closest('.guestCard')) && e.target.id !== "guests" && card.style.display === 'block') {
+    card.style.display = 'none';
+  }
+});
+
 plusBtn.addEventListener('click', () => {
   count += 1;
   numberOfGuest.textContent = count;
@@ -57,7 +63,7 @@ minusBtn.addEventListener('click', () => {
 });
 
 showGuestBtn.addEventListener('click', () => {
-  if(card.style.display === 'none'){
+  if(['', 'none'].includes(card.style.display)){
     card.style.display = 'block';
     minusBtn.disabled = true;
   } else{
@@ -67,7 +73,13 @@ showGuestBtn.addEventListener('click', () => {
 
 checkin.addEventListener('change', () => {
   const date = new Date(checkin.value);
-  if(date.getDate() < new Date().getDate() || date.getMonth() < new Date().getMonth()){
+  let checkoutDate;
+
+  if (checkout.value !== null) {
+    checkoutDate = new Date(checkout.value);
+  }
+
+  if(date.getDate() < new Date().getDate() || date.getMonth() < new Date().getMonth() || (checkout.value !== null && date.getDate() > checkoutDate.getDate())){
     checkin.value = '';
     checkinError.style.display = 'block';
     setTimeout(() => {

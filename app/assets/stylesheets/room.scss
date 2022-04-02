@@ -15,6 +15,9 @@
 
 .control{
   font-size: 1.1rem !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .image{

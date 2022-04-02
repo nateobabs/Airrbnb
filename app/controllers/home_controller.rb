@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @location = params[:location]
     @checkin = params[:checkin]
     @checkout = params[:checkout]
-    @guests = params[:guests]
+    @guests = params[:guests] || 1
     @stays = Room.search(@location)
     if @stays.blank?
       @rooms = Room.all

@@ -26,7 +26,13 @@ link.addEventListener('click', () => {
 
 checkinDate.addEventListener('change', () => {
   checkin = new Date(checkinDate.value);
-  if(checkin.getDate() < new Date().getDate() || checkin.getMonth() < new Date().getMonth()){
+  let chkoutDate;
+
+  if (checkoutDate.value !== null) {
+    chkoutDate = new Date(checkoutDate.value);
+  }
+
+  if (checkin.getDate() < new Date().getDate() || checkin.getMonth() < new Date().getMonth() || (checkoutDate !== null && checkin.getDate() > chkoutDate.getDate())){
     checkinLabel.textContent = 'Invalid Date';
     checkinLabel.style.color = 'red';
     checkinDate.value = '';

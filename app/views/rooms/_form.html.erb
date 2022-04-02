@@ -135,7 +135,11 @@
         <div class="field">
           <label class="label">Add Images<span style="color: #ff5b5b; font-size: 0.8rem;"> (Add atleast 5 images)</span></label>
           <div class="control">
-            <%= f.text_area :urls, placeholder: "[\"Url1\",\"Url2\",... ]", class: "textarea", value: "" %>
+            <input placeholder="Url 1" type="text" name="room[urls][]" class="input">
+            <input placeholder="Url 2" type="text" name="room[urls][]" class="input"> 
+            <input placeholder="Url 3" type="text" name="room[urls][]" class="input"> 
+            <input placeholder="Url 4" type="text" name="room[urls][]" class="input"> 
+            <input placeholder="Url 5" type="text" name="room[urls][]" class="input"> 
           </div>
         </div>
       </div>

@@ -55,6 +55,11 @@
           <script>
             const dropdownTrigger = document.querySelector('.dropBtn');
             const dropdownMenu = document.querySelector('.dropdown');
+            $('body').on('click', (e) => {
+              if(e.target.closest('.dropdown') !== dropdownMenu && dropdownMenu.classList.contains('is-active')) {
+                dropdownMenu.classList.remove('is-active');
+              }
+            });
             dropdownTrigger.addEventListener('click', () => {
               if(!dropdownMenu.classList.contains('is-active')){
                 dropdownMenu.classList.add('is-active');

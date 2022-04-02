@@ -3,7 +3,7 @@ class Room < ApplicationRecord
   has_many :reservations, dependent: :destroy
 
   geocoded_by :room_address
-  after_validation :geocode, if: :room_address_changed?
+  after_validation :geocode
   
   validates :home_type, :room_type, :accomdate, :bedroom, :bathroom, :listing_name, :summary, :address, :city, :state, presence: true
   validates :urls, length: { maximum: 5, message: "Only 5 images are required" }
@@ -20,7 +20,7 @@ class Room < ApplicationRecord
 
   def self.search(location)
     if location
-      Room.where('address ILIKE ?', '%' + location + '%')
+      Room.where('address ILIKE ?', "%#{location}%")
     else
       []
     end
