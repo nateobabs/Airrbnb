@@ -65,7 +65,7 @@
     <%=  form_tag(search_path, method: :get, id: "mobile-form", autocomplete: "off") do %>
       <div class="field">
         <p class="control has-icons-left">
-        <%= text_field_tag(:location, params[:search], class: "input is-rounded is-medium", placeholder: "Where are you going?", id:"autocomplete_address" ) %>
+        <%= text_field_tag(:location, params[:search], class: "input is-rounded is-medium", placeholder: "Where are you going?", id:"autocomplete_address", required: true) %>
           <span class="icon is-left">
             <img src="https://img.icons8.com/ios/25/000000/search--v1.png"/>
           </span>
