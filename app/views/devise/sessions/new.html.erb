@@ -25,6 +25,7 @@
               <%= f.password_field :password, class: "input", id: "password" %>
             </div>
             <div class="help is-danger" id="requiredPassMsg" style="display:none;">Password is required</div>
+            <div class="help is-danger" id="smallPassMsg" style="display:none;">Must be atleast 6 characters</div>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="field">

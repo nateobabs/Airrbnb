@@ -19,10 +19,6 @@
   margin-top: 20vh !important;
 }
 
-.wrapper{
-  margin-bottom: 20vh !important;
-}
-
 .date{
   font-size: 1rem;
   font-weight: 900;
@@ -33,12 +29,20 @@
   padding: 3vh !important;
   margin-top: 2vh !important;
   margin-left: 6% !important; 
+
+  & .media {
+    height: 20rem;
+    
+    & .media-left {
+      height: 100%;
+    }
+  }
 }
 
 .trip_img{
-  width: 60vh !important;
-  height: 35vh !important;
-  border-radius: 1vh !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px !important;
 }
 
 .trip-wrap{
@@ -59,7 +63,7 @@
 }
 
 .cancel{
-  width: 20% !important;
+  width: 8rem !important;
   display: block !important;
   margin-top: 1.5rem !important;
   font-weight: 600 !important;

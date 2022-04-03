@@ -7,7 +7,7 @@ const checkoutDate = document.querySelector('#checkoutDate');
 const startDate = document.querySelector('#start_date');
 const endDate = document.querySelector('#end_date');
 const price = document.querySelector('#price');
-const guests = document.querySelector('#reservation_total');
+const guests = document.querySelector('#guests');
 const cost = document.querySelector('#cost');
 const totalNight = document.querySelector('#total_nights');
 const btn = document.querySelector('.searchBtn');
@@ -76,7 +76,8 @@ checkoutDate.addEventListener('change', () => {
 
 guests.addEventListener('change', () => {
   total = guests.value;
-  if(checkout != null && document.querySelector('#charges').style.display === 'none' && checkout != null){
+  console.log(total);
+  if(checkout !== null && checkout !== null && total !== null){
     calculateCharges();
     btn.disabled = false
   } else{

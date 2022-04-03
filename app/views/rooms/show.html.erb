@@ -2,27 +2,23 @@
   <div class="container is-fluid space">
     <h1 class="is-size-2 has-text-weight-semibold"><%= @room.listing_name %></h1>
     <h4 class="is-size-5 mb-4" style="text-decoration: underline;"><%= @room.address %></h4>
-    <div class="tile is-ancestor">
-      <div class="tile is-parent">
-        <div class="tile is-child">
-          <% if @room.urls.length > 0 %>
-            <%= image_tag @room.urls[0], class: "show-room-img main-img"%>
+    <div class="room-images">
+      <div>
+        <% if @room.urls.length > 0 %>
+          <%= image_tag @room.urls[0], class: "show-room-img main-img"%>
+        <% end %>
+      </div>
+      <div class="stack-images">
+        <% @room.urls.each_with_index do |url, index| %>
+          <% if index != 0 %>
+            <div>
+              <%= image_tag url, class: "show-room-img stack-img"%>
+            </div>
           <% end %>
-        </div>
-        <div class="tile" style="padding: 0 1vh !important"id="stacks">
-          <div class="columns stack-images">
-            <% @room.urls.each_with_index do |url, index| %>
-              <% if index != 0 %>
-                <div class="column is-half stack-columns">
-                  <%= image_tag url, class: "show-room-img stack-img"%>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
-    <div class="columns is-mobile mt-5 desc-column" style="padding-right: 5% !important;">
+    <div class="columns is-mobile mt-5 desc-column">
       <div class="column is-two-thirds-widescreen is-full-desktop is-full-mobile">
         <h2 class="is-size-3 has-text-weight-semibold" style="display: inline-block !important;">
           <%= @room.room_type.capitalize %> hosted by <%= @room.user.email.split('@')[0] %>

@@ -5,8 +5,9 @@
     </p>
     <script type="text/javascript">
       setTimeout(() => {
-        document.querySelector('#notice').style.display = 'none';
+        $('#notice').fadeOut('fast');
       }, 3000);
+      
     </script>
   <% end %>
   <% if key == 'alert' %>
@@ -15,7 +16,7 @@
     </p>
     <script type="text/javascript">
       setTimeout(() => {
-        document.querySelector('#alert').style.display = 'none';
+        $('#alert').fadeOut('fast');
       }, 3000);
     </script>
   <% end %>

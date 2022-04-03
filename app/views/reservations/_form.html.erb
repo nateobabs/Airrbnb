@@ -24,7 +24,7 @@
       </div>
       <div class="columns guest-select">
         <div class="select">
-          <%= f.select(:total, options_for_select([["1 guest", 1], ["2 guests", 2], ["3 guests", 3], ["4 guests", 4], ["5 guests", 4], ["6 guests", 4]]), {include_blank: "Add Guests"}) %>
+          <%= f.select(:total, options_for_select([["1 guest", 1], ["2 guests", 2], ["3 guests", 3], ["4 guests", 4], ["5 guests", 4], ["6 guests", 4]]), {include_blank: "Add Guests"}, id: "guests") %>
         </div>
       </div>
       <%= f.hidden_field :price, id: "price" %>

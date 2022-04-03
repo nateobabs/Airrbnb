@@ -1,7 +1,7 @@
 $(document).scroll(function() {
   if(window.innerHeight + window.scrollY > document.body.clientHeight - 25) {
-    document.getElementById('bottom-navbar').style.display='none';
+    $('#bottom-navbar').fadeOut('fast');
   } else{
-    document.getElementById('bottom-navbar').style.display='block';
+    $('#bottom-navbar').fadeIn('fast');
   }
 });

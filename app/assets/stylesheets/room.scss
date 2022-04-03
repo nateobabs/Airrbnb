@@ -56,18 +56,22 @@ li{
   margin-right: 0.5vh !important;
 }
 
-.tile{
-  width: 90% !important;
-}
-
 .show-room-img{
   border-radius: 1.5vh !important;
 }
 
+.room-images {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  height: 30rem;
+  column-gap: 0.5rem;
+}
+
 .stack-images{
-  display: table !important;
-  margin-top: 1.4rem !important;
-  margin-left: 1px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 15rem 15rem;
+  gap: 0.5rem;
 }
 
 .book-card{
@@ -153,8 +157,6 @@ li{
 
 .mapcard{
   height: 500px;
-  width: 1000px !important;
-  left: 10% !important;
   margin-top: 5vh !important;
 }
 
@@ -167,11 +169,11 @@ li{
 .stack-img{
   object-fit: cover;
   width: 100%;
-  height: 29vh;
+  height: 100%;
 }
 
 .main-img{
   object-fit: cover;
-  height: 59vh;
+  height: 100%;
   width: 100%;
 }

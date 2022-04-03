@@ -16,7 +16,7 @@
 
 @import "bulma";
 
-@media (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 767px) {
   #navbar, #laptop-form, .image, #stacks{
     display: none !important;
   }
@@ -37,10 +37,6 @@
 
   .tile{
     width: 100% !important;
-  }
-
-  .buttons{
-    float: left !important;
   }
 
   .column.is-three-fifths-mobile {
@@ -127,10 +123,6 @@
     margin-top: 0 !important;
   }
 
-  .wrapper{
-    margin-bottom: 10vh !important;
-  }
-
   .desc-column{
     display: block !important;
   }
@@ -145,7 +137,6 @@
   }
 
   .mapcard, #mapp{
-    left: 0 !important;
     height: 300px !important;
   }
 
@@ -205,6 +196,18 @@
 
   .trip-box{
     width: 90% !important;
+    
+    & .media {
+      height: auto;
+    }
+  }
+
+  .stack-images {
+    display: none !important;
+  }
+
+  .room-images {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -236,10 +239,6 @@
 
   .review-box{
     margin-top: 6vh !important;
-  }
-
-  .wrapper{
-    margin-bottom: 10vh !important;
   }
 
   h2{
@@ -324,10 +323,6 @@
     padding-left: 5px !important;
     margin-bottom: 110px !important;
   }
-
-  .mapcard{
-    left: 0 !important;
-  }
 }
 
 @media (min-width: 1024px) and (max-width: 1215px){
@@ -339,10 +334,6 @@
   .searchwrap{
     padding-left: 5px !important;
     padding-right: 0 !important;
-  }
-
-  .mapcard{
-    left: 0 !important;
   }
 
   .media-left{
@@ -381,7 +372,7 @@
   }
 
   .space{
-    padding-left: 10vh !important;
+    padding-left: 0 5rem !important;
   }
 }
 
@@ -402,7 +393,7 @@
   }
 
   .space{
-    padding-left: 20vh !important;
+    padding: 0 5rem !important;
   }
 
   body{
@@ -414,16 +405,8 @@
     margin-left: 1.5vh;
   }
 
-  .mapcard{
-    left: 5% !important;
-  }
-
   #bottom-navbar, #mobile-form{
     display: none !important;
-  }
-
-  .stack-images{
-    margin-top: 0 !important;
   }
 }
 
@@ -498,11 +481,20 @@ a{
   border-color: #dbdbdb;
 }
 
+.buttons {
+  justify-content: flex-end;
+}
+
 .buttons .button{
   background-color: #4a4747;
   border-color: #4a4747;
   color: white;
   transition: 0.2s;
+  margin-bottom: 0;
+}
+
+.buttons:last-child {
+  margin-bottom: 0;
 }
 
 .buttons .button:hover, .button:focus{
@@ -609,10 +601,6 @@ a{
 
 input[type=file][data-direct-upload-url][disabled] {
   display: none;
-}
-
-.buttons{
-  float: right;
 }
 
 li{
